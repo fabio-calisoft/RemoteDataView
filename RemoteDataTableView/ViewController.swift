@@ -12,30 +12,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var mTableView: UITableView!
     
-    /**
-     Class describing a surf spot
-     no methods are included. Used only to hold the surf spot data
-     */
-    class SurfSpot {
-        
-        var location: String?
-        var waves_min: String?
-        var waves_max: String?
-        var low_tide: String?
-        var high_tide: String?
-        var imageurl: String?
-        var report: String?
-        init(location: String, waves_min: String, waves_max: String, low_tide: String, high_tide: String, imageurl: String, report: String) {
-            self.location = location
-            self.waves_min = waves_min
-            self.waves_max = waves_max
-            self.low_tide = low_tide
-            self.high_tide = high_tide
-            self.imageurl = imageurl
-            self.report = report
-        }
-    }
-    
     // spots is and Array of SurSpots and holds the data received from the server
     var spots: Array<SurfSpot> = Array<SurfSpot>()
     
@@ -89,25 +65,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print("Could not parse the data as JSON: '\(data)'")
                 return
             }
-            if let blogs = parsedResult["locations"] as? [[String: AnyObject]] {
-                for blog in blogs {
-                    let name = blog["location"] as! String
-                    let waves_min = blog["waves_min"]  as! String
-                    let waves_max = blog["waves_max"]as! String
-                    let low_tide = blog["low_tide"]as! String
-                    let high_tide = blog["high_tide"]as! String
-                    let imageurl = blog["imageurl"]as! String
-                    let report = blog["report"]as! String
-                    /*print(high_tide)
-                    print(report)
-                    print(low_tide)
-                    print(waves_max)
-                    print(waves_min)
-                    print(name)
-                    print(imageurl)*/
-                    let spot = SurfSpot(location: name, waves_min: waves_min, waves_max: waves_max, low_tide: low_tide, high_tide: high_tide, imageurl: imageurl, report: report)
+            if let items = parsedResult["locations"] as? [[String: String]] {
+                for item in items {
+                    let mySpot = SurfSpot(  spot: item  )
                     print("spots.append")
-                    self.spots.append(spot)
+                    self.spots.append(mySpot)
                 }
             }// if
             print("reloadData")

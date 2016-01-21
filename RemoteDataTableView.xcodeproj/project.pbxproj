@@ -14,6 +14,7 @@
 		E5176CE51C4F8E5600872EDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5176CE31C4F8E5600872EDA /* LaunchScreen.storyboard */; };
 		E5176D0D1C4F9E7B00872EDA /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5176D0C1C4F9E7B00872EDA /* LocationCell.swift */; };
 		E5176D0F1C4FA40300872EDA /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5176D0E1C4FA40300872EDA /* DetailViewController.swift */; };
+		E5176D111C50A14100872EDA /* SurfSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5176D101C50A14100872EDA /* SurfSpot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		E5176CE61C4F8E5600872EDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5176D0C1C4F9E7B00872EDA /* LocationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		E5176D0E1C4FA40300872EDA /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		E5176D101C50A14100872EDA /* SurfSpot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SurfSpot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				E5176CDE1C4F8E5600872EDA /* Main.storyboard */,
 				E5176D0E1C4FA40300872EDA /* DetailViewController.swift */,
 				E5176D0C1C4F9E7B00872EDA /* LocationCell.swift */,
+				E5176D101C50A14100872EDA /* SurfSpot.swift */,
 				E5176CE11C4F8E5600872EDA /* Assets.xcassets */,
 				E5176CE31C4F8E5600872EDA /* LaunchScreen.storyboard */,
 				E5176CE61C4F8E5600872EDA /* Info.plist */,
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5176D0D1C4F9E7B00872EDA /* LocationCell.swift in Sources */,
+				E5176D111C50A14100872EDA /* SurfSpot.swift in Sources */,
 				E5176CDD1C4F8E5600872EDA /* ViewController.swift in Sources */,
 				E5176CDB1C4F8E5600872EDA /* AppDelegate.swift in Sources */,
 				E5176D0F1C4FA40300872EDA /* DetailViewController.swift in Sources */,
