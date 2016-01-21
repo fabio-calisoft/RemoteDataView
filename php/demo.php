@@ -15,15 +15,16 @@ $query = "SELECT * from demo";
 $res = $db->select($query);
 $aRes = $res->getArray();
 //print_r($aRes);
-foreach ($aRes as $k=>$record) {
-        $json.= json_encode($record).",";
-}
-        
+//foreach ($aRes as $k=>$record) {
+//        $json.= json_encode($record).",";
+//}
+      
 $json = json_encode($aRes);
 print "{ \"locations\": $json }";
+mLog("new access");
 
 function mLog($msg) {
-	$LOG_FILE='./access.log';
+	$LOG_FILE='./accessdemo.log';
 
 	$date = date('m/d/Y h:i:s a', time());
 	$data = "\n" . $date . " - " . $msg;
