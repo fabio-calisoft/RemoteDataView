@@ -22,6 +22,7 @@ class DetailViewController: UIViewController {
     
     @IBOutlet var tidemaxlabel: UILabel!
     
+    @IBOutlet var locationImage: UIImageView!
     
     var location: String = ""
     var forecast: String = ""
@@ -29,6 +30,9 @@ class DetailViewController: UIViewController {
     var wavemax: String = ""
     var tidemin: String = ""
     var tidemax: String = ""
+    var imageurl: String = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +42,13 @@ class DetailViewController: UIViewController {
         wavemaxlabel.text = wavemax
         tideminlabel.text = tidemin
         tidemaxlabel.text = tidemax
+        
+        let url = NSURL(string: imageurl)
+        let data = NSData(contentsOfURL:url!)
+        if data != nil {
+            locationImage.image = UIImage(data:data!)
+        }
+        
         
         
         // Do any additional setup after loading the view.

@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Surf Report-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RemoteDataTableView" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,9 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="An9-7y-KN8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="An9-7y-KN8">
                                 <rect key="frame" x="20" y="101" width="560" height="479"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="vP9-mS-bbw"/>
+                                </constraints>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="fabiocell" id="PPG-6P-rxT" customClass="LocationCell" customModule="RemoteDataTableView" customModuleProvider="target">
@@ -87,8 +90,14 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="An9-7y-KN8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8EG-0k-jgy"/>
+                            <constraint firstItem="An9-7y-KN8" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="37" id="WYv-B4-LaC"/>
+                            <constraint firstItem="An9-7y-KN8" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bBW-wS-0cE"/>
+                            <constraint firstItem="An9-7y-KN8" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="eoa-Ro-Hvz"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="yLE-Co-Yox"/>
+                    <navigationItem key="navigationItem" title="Surf Report" id="yLE-Co-Yox"/>
                     <connections>
                         <segue destination="F0O-vF-WzG" kind="show" identifier="showDetail" id="uwO-cn-Van"/>
                     </connections>
@@ -224,15 +233,24 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5dJ-X0-nBH">
+                                <rect key="frame" x="148" y="436" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="2zx-oX-J0D"/>
+                                    <constraint firstAttribute="height" constant="128" id="Pea-zD-FMi"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="ksk-K6-ECf" firstAttribute="top" secondItem="5dJ-X0-nBH" secondAttribute="bottom" constant="35" id="3S3-En-bMF"/>
                             <constraint firstItem="y1f-jJ-hM6" firstAttribute="leading" secondItem="sDm-AA-5F9" secondAttribute="trailing" id="4MD-cw-RTz"/>
                             <constraint firstItem="TkM-Oz-7s2" firstAttribute="leading" secondItem="gmz-lK-vN7" secondAttribute="leadingMargin" id="5Xc-aB-t3o"/>
                             <constraint firstItem="mTC-Wh-tlo" firstAttribute="leading" secondItem="gmz-lK-vN7" secondAttribute="leadingMargin" id="8b5-Kb-wKF"/>
                             <constraint firstItem="vfK-CT-q52" firstAttribute="top" secondItem="pzp-et-kVt" secondAttribute="bottom" constant="26" id="BEM-sF-Ovm"/>
                             <constraint firstItem="YIj-PT-AsK" firstAttribute="leading" secondItem="pzp-et-kVt" secondAttribute="trailing" constant="8" id="Gga-ig-iYd"/>
                             <constraint firstItem="68Q-K3-54l" firstAttribute="leading" secondItem="YIj-PT-AsK" secondAttribute="trailing" constant="10" id="Gou-HZ-vY1"/>
+                            <constraint firstItem="5dJ-X0-nBH" firstAttribute="centerX" secondItem="gmz-lK-vN7" secondAttribute="centerX" id="Jmd-nH-yDk"/>
                             <constraint firstItem="pzp-et-kVt" firstAttribute="top" secondItem="jhP-Hu-o9X" secondAttribute="bottom" constant="40" id="O4a-cp-qrk"/>
                             <constraint firstItem="9Xt-jw-XfO" firstAttribute="top" secondItem="68Q-K3-54l" secondAttribute="bottom" constant="26" id="PVf-LK-1Mz"/>
                             <constraint firstItem="y1f-jJ-hM6" firstAttribute="top" secondItem="Hyl-ti-KJj" secondAttribute="bottom" constant="8" id="PZj-UT-dTY"/>
@@ -242,7 +260,9 @@
                             <constraint firstItem="mTC-Wh-tlo" firstAttribute="top" secondItem="jhP-Hu-o9X" secondAttribute="bottom" constant="49" id="YVb-5P-uUC"/>
                             <constraint firstItem="pzp-et-kVt" firstAttribute="leading" secondItem="mTC-Wh-tlo" secondAttribute="trailing" constant="23" id="bwe-gf-hid"/>
                             <constraint firstItem="jhP-Hu-o9X" firstAttribute="top" secondItem="aZv-qS-D6I" secondAttribute="bottom" constant="8" id="fqJ-7c-eig"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5dJ-X0-nBH" secondAttribute="trailing" constant="40" id="hOn-wL-axG"/>
                             <constraint firstItem="9Xt-jw-XfO" firstAttribute="leading" secondItem="7Ne-Zi-mvp" secondAttribute="trailing" constant="11" id="hzT-2u-hCf"/>
+                            <constraint firstItem="5dJ-X0-nBH" firstAttribute="leading" secondItem="gmz-lK-vN7" secondAttribute="leadingMargin" constant="40" id="iVD-GJ-Zfi"/>
                             <constraint firstItem="vfK-CT-q52" firstAttribute="leading" secondItem="TkM-Oz-7s2" secondAttribute="trailing" constant="47" id="lEc-Ax-kFD"/>
                             <constraint firstItem="7Ne-Zi-mvp" firstAttribute="top" secondItem="YIj-PT-AsK" secondAttribute="bottom" constant="24" id="mX9-bG-Jp6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="jhP-Hu-o9X" secondAttribute="trailing" constant="40" id="wHc-Vh-Wel"/>
@@ -256,6 +276,7 @@
                     </view>
                     <connections>
                         <outlet property="forecastlabel" destination="jhP-Hu-o9X" id="5aV-yg-0Is"/>
+                        <outlet property="locationImage" destination="5dJ-X0-nBH" id="UJE-Cw-avw"/>
                         <outlet property="locationlabel" destination="y1f-jJ-hM6" id="1xe-yx-ilu"/>
                         <outlet property="tidemaxlabel" destination="9Xt-jw-XfO" id="0Lu-XW-x8C"/>
                         <outlet property="tideminlabel" destination="vfK-CT-q52" id="peU-S0-tZh"/>

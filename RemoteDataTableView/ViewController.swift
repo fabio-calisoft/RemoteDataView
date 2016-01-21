@@ -154,7 +154,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         destinationVC.wavemax  = spots[self.selectedRow].waves_max!
         destinationVC.tidemin = spots[self.selectedRow].low_tide!
         destinationVC.tidemax  = spots[self.selectedRow].high_tide!
-        
+        destinationVC.imageurl = spots[self.selectedRow].imageurl!
         
         
     }
