@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var tableView: UITableView!
+    var mTableView: UITableView!
     
     class SurfSpot {
         
@@ -33,6 +33,9 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     var spots: Array<SurfSpot> = Array<SurfSpot>()
+    // https://www.youtube.com/watch?v=BCSGh-YJgvs
+    
+    var selectedRow = 1
     
     // MARK: JSON
     
@@ -100,8 +103,9 @@ class ViewController: UIViewController, UITableViewDataSource {
                 }
             }// if
             print("reloadData")
-            self.tableView!.reloadData()
-            //self.view
+            dispatch_async(dispatch_get_main_queue()) {
+                self.mTableView!.reloadData()
+            }
             
             
         } // end NS session
@@ -109,29 +113,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         
     }
     
-    
-    // https://www.youtube.com/watch?v=BCSGh-YJgvs
-    
-    var selectedRow = 1
-    
-    let movies = [
-        ("iOS App Dev with Swift Essential Training","Simon Allardice"),
-        ("iOS 8 SDK New Features","Lee Brimelow"),
-        ("Data Visualization with D3.js","Ray Villalobos"),
-        ("Swift Essential Training","Simon Allardice"),
-        ("Up and Running with AngularJS","Ray Villalobos"),
-        ("MySQL Essential Training","Bill Weinman"),
-        ("Building Adaptive Android Apps with Fragments","David Gassner"),
-        ("Advanced Unity 3D Game Programming","Michael House"),
-        ("Up and Running with Ubuntu Desktop Linux","Scott Simpson"),
-        ("Up and Running with C","Dan Gookin") ]
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         print("spots.count=" + String(spots.count) )
+        self.mTableView = tableView
         return spots.count
     }
     
@@ -139,8 +127,11 @@ class ViewController: UIViewController, UITableViewDataSource {
         let row = indexPath.row
         print("tableView Row: \(row)")
         let cell = tableView.dequeueReusableCellWithIdentifier("fabiocell", forIndexPath:  indexPath) as! LocationCell
-        cell.titleLabel.text = spots[row].location
-        cell.contentLabel.text = spots[row].report
+        cell.locationLabel.text = spots[row].location
+        cell.waveminlabel.text = spots[row].waves_min
+        cell.wavemaxlabel.text = spots[row].waves_max
+        cell.tideminlabel.text = spots[row].low_tide
+        cell.tidemaxlabel.text = spots[row].high_tide
         return cell
     }
     
@@ -157,16 +148,22 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         print("custom prepareForSegue:" + segue.identifier! )
         let destinationVC :DetailViewController = segue.destinationViewController as! DetailViewController
-        destinationVC.labelText = movies[self.selectedRow].0
+        destinationVC.location = spots[self.selectedRow].location!
+        destinationVC.forecast = spots[self.selectedRow].report!
+        destinationVC.wavemin = spots[self.selectedRow].waves_min!
+        destinationVC.wavemax  = spots[self.selectedRow].waves_max!
+        destinationVC.tidemin = spots[self.selectedRow].low_tide!
+        destinationVC.tidemax  = spots[self.selectedRow].high_tide!
+        
+        
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mTableView = UITableView(frame:self.view!.frame)
+        mTableView.delegate = self
         getServerData()
-        tableView = UITableView(frame:self.view!.frame)
-
     }
     
     override func didReceiveMemoryWarning() {

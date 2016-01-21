@@ -10,8 +10,15 @@ import UIKit
 
 class LocationCell: UITableViewCell {
 
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var contentLabel: UILabel!
+    @IBOutlet var locationLabel: UILabel!
+    
+    @IBOutlet var waveminlabel: UILabel!
+    
+    @IBOutlet var wavemaxlabel: UILabel!
+    
+    @IBOutlet var tideminlabel: UILabel!
+    
+    @IBOutlet var tidemaxlabel: UILabel!
     
     
     override func awakeFromNib() {
