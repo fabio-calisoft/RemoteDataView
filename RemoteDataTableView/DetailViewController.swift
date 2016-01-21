@@ -43,6 +43,7 @@ class DetailViewController: UIViewController {
         tideminlabel.text = tidemin
         tidemaxlabel.text = tidemax
         
+        // dinamically load the image from hte URL
         let url = NSURL(string: imageurl)
         let data = NSData(contentsOfURL:url!)
         if data != nil {

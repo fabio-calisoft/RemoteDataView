@@ -36,12 +36,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
     }
     
+    // spots is and Array of SurSpots and holds the data received from the server
     var spots: Array<SurfSpot> = Array<SurfSpot>()
     
     var selectedRow = 1
     
     // MARK: JSON
     
+    /**
+    retrieves the data from the server, parses the JSON and add the items into the global spots array
+    - Parameter none
+    */
     func getServerData() {
         print("getServerData")
         let urlString = "http://www.crokky.com/androidapps/lazanzara/demo.php"
