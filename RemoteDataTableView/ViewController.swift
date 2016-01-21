@@ -12,6 +12,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     var mTableView: UITableView!
     
+    /**
+     Class describing a surf spot
+     no methods are included. Used only to hold the surf spot data
+     */
     class SurfSpot {
         
         var location: String?
@@ -33,7 +37,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     var spots: Array<SurfSpot> = Array<SurfSpot>()
-    // https://www.youtube.com/watch?v=BCSGh-YJgvs
     
     var selectedRow = 1
     
